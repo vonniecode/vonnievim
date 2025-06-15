@@ -695,7 +695,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
@@ -813,12 +813,12 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
+          -- {
+          --   'rafamadriz/friendly-snippets',
+          --   config = function()
+          --     require('luasnip.loaders.from_vscode').lazy_load()
+          --   end,
+          -- },
         },
         opts = {},
       },
@@ -900,11 +900,12 @@ require('lazy').setup({
     -- 'catppuccin/nvim',
     -- 'rose-pine/neovim',
     -- 'anAcc22/sakura.nvim',
-    'n1ghtmare/noirblaze-vim',
-    name = 'noirblaze',
+    -- 'n1ghtmare/noirblaze-vim',
+    'AmberLehmann/candyland.nvim',
+    name = 'candyland',
     priority = 1000, -- Make sure to load this before all the other start plugins
-    lazy = false,
-    dependencies = 'rktjmp/lush.nvim',
+    -- lazy = false,
+    -- dependencies = 'rktjmp/lush.nvim',
     config = function()
       -----@diagnostic disable-next-line: missing-fields
       --require('rose-pine').setup {
@@ -917,9 +918,9 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.opt.background = 'dark'
-      vim.cmd.colorscheme 'noirblaze'
-      vim.api.nvim_set_hl(0, 'String', { fg = '#f4b8e4' }) -- pastel pink
+      --   vim.opt.background = 'dark'
+      vim.cmd.colorscheme 'candyland'
+      --   vim.api.nvim_set_hl(0, 'String', { fg = '#f4b8e4' }) -- pastel pink
       --vim.api.nvim_set_hl(0, '@property', { fg = '#f4b8e4' }) -- treesitter
       --vim.api.nvim_set_hl(0, '@field', { fg = '#f4b8e4' }) -- git diff adds
       --vim.api.nvim_set_hl(0, 'Identifier', { fg = '#f4b8e4' }) -- if you want to change types too
