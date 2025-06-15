@@ -813,12 +813,12 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
         opts = {},
       },
@@ -895,22 +895,34 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    --'folke/tokyonight.nvim',
-    'Mofiqul/dracula.nvim',
+    -- 'folke/tokyonight.nvim',
+    --'Mofiqul/dracula.nvim',
     -- 'catppuccin/nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- 'rose-pine/neovim',
+    -- 'anAcc22/sakura.nvim',
+    'n1ghtmare/noirblaze-vim',
+    name = 'noirblaze',
+    priority = 1000, -- Make sure to load this before all the other start plugins
+    lazy = false,
+    dependencies = 'rktjmp/lush.nvim',
     config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('dracula').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
-      }
+      -----@diagnostic disable-next-line: missing-fields
+      --require('rose-pine').setup {
+      --  variant = 'auto',
+      -- dark_variant = 'main',
+      -- dim_inactive_windows = true,
+      --  extend_background_behind_borders = true,
+      --}
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'dracula'
+      vim.opt.background = 'dark'
+      vim.cmd.colorscheme 'noirblaze'
+      vim.api.nvim_set_hl(0, 'String', { fg = '#f4b8e4' }) -- pastel pink
+      --vim.api.nvim_set_hl(0, '@property', { fg = '#f4b8e4' }) -- treesitter
+      --vim.api.nvim_set_hl(0, '@field', { fg = '#f4b8e4' }) -- git diff adds
+      --vim.api.nvim_set_hl(0, 'Identifier', { fg = '#f4b8e4' }) -- if you want to change types too
     end,
   },
 
@@ -989,12 +1001,12 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
