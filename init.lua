@@ -791,22 +791,29 @@ require('lazy').setup({
     },
   },
   {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
+    'supermaven-inc/supermaven-nvim',
     config = function()
-      require('copilot').setup {}
+      require('supermaven-nvim').setup {}
     end,
-    -- opts = function()
-    --   LazyVim.cmp.actions.ai_accept = function()
-    --     if require('copilot.suggestion').is_visible() then
-    --       LazyVim.create_undo()
-    --       require('copilot.suggestion').accept()
-    --       return true
-    --     end
-    --   end
-    -- end,
   },
+
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  --   cmd = 'Copilot',
+  --   event = 'InsertEnter',
+  --   config = function()
+  --     require('copilot').setup {}
+  --   end,
+  --   -- opts = function()
+  --   --   LazyVim.cmp.actions.ai_accept = function()
+  --   --     if require('copilot.suggestion').is_visible() then
+  --   --       LazyVim.create_undo()
+  --   --       require('copilot.suggestion').accept()
+  --   --       return true
+  --   --     end
+  --   --   end
+  --   -- end,
+  -- },
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -885,16 +892,16 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev', 'copilot' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-          copilot = {
-            name = 'copilot',
-            module = 'blink-cmp-copilot',
-            kind = 'Copilot',
-            score_offset = 100,
-            async = true,
-          },
+          -- copilot = {
+          --   name = 'copilot',
+          --   module = 'blink-cmp-copilot',
+          --   kind = 'Copilot',
+          --   score_offset = 100,
+          --   async = true,
+          -- },
         },
       },
 
