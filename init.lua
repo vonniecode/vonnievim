@@ -144,6 +144,10 @@ vim.o.splitbelow = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+
+-- language specific settings
+vim.opt.spell = true
+vim.opt.spelllang = { 'en', 'es' }
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
@@ -475,6 +479,13 @@ require('lazy').setup({
       require('oil').setup()
       vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'open parent directory' })
     end,
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
   -- LSP Plugins
   {
